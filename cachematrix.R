@@ -1,18 +1,19 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse
+## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL ## reset cache value 
-  matrix2cache <- x
+  matrix2cache <- x ## remember original matrix
   checkCache <- function(x) {
     if (!is.null(i) & identical(x,matrix2cache)) { 
       message("getting cached data")
-      return(i) #return cached value if it exists for requested matrix
+      return(i) ##return cached value if it exists for requested matrix
     }
     message("calculating")
-    i <<- solve(x) #calculate inverse matrix for mx, update cache    
+    i <<- solve(x) ##calculate inverse matrix for mx, update cache
+    matrix2cache <<- x ## remember original matrix (it may be changed)
     i
    }
 
