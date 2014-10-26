@@ -6,7 +6,7 @@
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL ## reset cache value 
   matrix2cache <- x
-  checkCache <- function(x=matrix) {
+  checkCache <- function(x) {
     if (!is.null(i) & identical(x,matrix2cache)) { 
       message("getting cached data")
       return(i) #return cached value if it exists for requested matrix
